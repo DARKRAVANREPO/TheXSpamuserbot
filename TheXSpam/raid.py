@@ -4,7 +4,7 @@ from random import choice
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
-from data import THE_ALTS, RAID
+from data import THE_ALTS, RAID,MRAID,BRAID,CRAID,SRAID
 from config import OWNER_ID, SUDO_USERS
 
 
@@ -125,3 +125,153 @@ async def watcher(_, msg: Message):
       if id in rusers:
             reply = choice(RAID)
             await msg.reply_text(reply)
+
+@Client.on_message(filters.user(SUDO_USERS) & filters.command(["sraid"], ["/", "!", "."]))
+async def raid(xspam: Client, message: Message):  
+      # Hero = "".join(e.text.split(maxsplit=1)[1:]).split(" ", 2)
+      alt = message.text.split(" ")
+
+      if len(alt) > 2:
+            ok = await xspam.get_users(alt[2])
+            id = ok.id
+                  counts = int(alt[1])
+                  fname = ok.first_name
+                  mention = f"[{fname}](tg://user?id={id})"
+                  for _ in range(counts):
+                        reply = choice(SRAID)
+                        msg = f"{mention} {reply}"
+                        await xspam.send_message(message.chat.id, msg)
+                        await asyncio.sleep(0.3)
+
+      elif message.reply_to_message and (len(alt) == 2):
+            user_id = message.reply_to_message.from_user.id
+            ok = await xspam.get_users(user_id)
+            id = ok.id
+                  counts = int(alt[1])
+                  fname = ok.first_name
+                  mention = f"[{fname}](tg://user?id={id})"
+                  for _ in range(counts):
+                        reply = choice(SRAID)
+                        msg = f"{mention} {reply}"
+                        await xspam.send_message(message.chat.id, msg)
+                        await asyncio.sleep(0.3)
+
+      else:
+          await message.reply_text("𝗠𝗼𝗱𝘂𝗹𝗲 𝗡𝗮𝗺𝗲: SRAID\n  » .sraid <ᴜꜱᴇʀɴᴀᴍᴇ ᴏꜰ ᴜꜱᴇʀ>\n  » .sraid <ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴜꜱᴇʀ>")
+
+@Client.on_message(filters.user(SUDO_USERS) & filters.command(["mraid"], ["/", "!", "."]))
+async def raid(xspam: Client, message: Message):  
+      # Hero = "".join(e.text.split(maxsplit=1)[1:]).split(" ", 2)
+      alt = message.text.split(" ")
+
+      if len(alt) > 2:
+            ok = await xspam.get_users(alt[2])
+            id = ok.id
+                  counts = int(alt[1])
+                  fname = ok.first_name
+                  mention = f"[{fname}](tg://user?id={id})"
+                  for _ in range(counts):
+                        reply = choice(MRAID)
+                        msg = f"{mention} {reply}"
+                        await xspam.send_message(message.chat.id, msg)
+                        await asyncio.sleep(0.3)
+
+      elif message.reply_to_message and (len(alt) == 2):
+            user_id = message.reply_to_message.from_user.id
+            ok = await xspam.get_users(user_id)
+            id = ok.id
+                  counts = int(alt[1])
+                  fname = ok.first_name
+                  mention = f"[{fname}](tg://user?id={id})"
+                  for _ in range(counts):
+                        reply = choice(MRAID)
+                        msg = f"{mention} {reply}"
+                        await xspam.send_message(message.chat.id, msg)
+                        await asyncio.sleep(0.3)
+
+      else:
+          await message.reply_text("𝗠𝗼𝗱𝘂𝗹𝗲 𝗡𝗮𝗺𝗲: MRAID\n  » .mraid <ᴜꜱᴇʀɴᴀᴍᴇ ᴏꜰ ᴜꜱᴇʀ>\n  » .mraid <ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴜꜱᴇʀ>")
+
+
+@Client.on_message(filters.user(SUDO_USERS) & filters.command(["craid"], ["/", "!", "."]))
+async def raid(xspam: Client, message: Message):  
+      # Hero = "".join(e.text.split(maxsplit=1)[1:]).split(" ", 2)
+      alt = message.text.split(" ")
+
+      if len(alt) > 2:
+            ok = await xspam.get_users(alt[2])
+            id = ok.id
+            if id in THE_ALTS:
+                  await message.reply_text("» ɴᴏ, ᴛʜɪꜱ ɢᴜʏ ɪꜱ ᴀʟᴛʀᴏɴ'ꜱ ᴏᴡɴᴇʀ")
+            elif id == OWNER_ID:
+                  await message.reply_text("» ɴᴏ, ᴛʜɪꜱ ɢᴜʏ ɪꜱ ᴏᴡɴᴇʀ ᴏꜰ ᴛʜᴇ ʙᴏᴛꜱ.")
+            elif id in SUDO_USERS:
+                  await message.reply_text("» ɴᴏ, ᴛʜɪꜱ ɢᴜʏ ɪꜱ ᴀ ꜱᴜᴅᴏ ᴜꜱᴇʀ")
+            else:
+                  counts = int(alt[1])
+                  fname = ok.first_name
+                  mention = f"[{fname}](tg://user?id={id})"
+                  for _ in range(counts):
+                        reply = choice(CRAID)
+                        msg = f"{mention} {reply}"
+                        await xspam.send_message(message.chat.id, msg)
+                        await asyncio.sleep(0.3)
+
+      elif message.reply_to_message and (len(alt) == 2):
+            user_id = message.reply_to_message.from_user.id
+            ok = await xspam.get_users(user_id)
+            id = ok.id
+            if id in THE_ALTS:
+                  await message.reply_text("» ɴᴏ, ᴛʜɪꜱ ɢᴜʏ ɪꜱ ᴀʟᴛʀᴏɴ'ꜱ ᴏᴡɴᴇʀ")
+            elif id == OWNER_ID:
+                  await message.reply_text("» ɴᴏ, ᴛʜɪꜱ ɢᴜʏ ɪꜱ ᴏᴡɴᴇʀ ᴏꜰ ᴛʜᴇ ʙᴏᴛꜱ.")
+            elif id in SUDO_USERS:
+                  await message.reply_text("» ɴᴏ, ᴛʜɪꜱ ɢᴜʏ ɪꜱ ᴀ ꜱᴜᴅᴏ ᴜꜱᴇʀ")
+            else:
+                  counts = int(alt[1])
+                  fname = ok.first_name
+                  mention = f"[{fname}](tg://user?id={id})"
+                  for _ in range(counts):
+                        reply = choice(CRAID)
+                        msg = f"{mention} {reply}"
+                        await xspam.send_message(message.chat.id, msg)
+                        await asyncio.sleep(0.3)
+
+      else:
+          await message.reply_text("𝗠𝗼𝗱𝘂𝗹𝗲 𝗡𝗮𝗺𝗲: CRAID\n  » .craid <ᴜꜱᴇʀɴᴀᴍᴇ ᴏꜰ ᴜꜱᴇʀ>\n  » .craid <ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴜꜱᴇʀ>")
+
+
+@Client.on_message(filters.user(SUDO_USERS) & filters.command(["braid"], ["/", "!", "."]))
+async def raid(xspam: Client, message: Message):  
+      # Hero = "".join(e.text.split(maxsplit=1)[1:]).split(" ", 2)
+      alt = message.text.split(" ")
+
+      if len(alt) > 2:
+            ok = await xspam.get_users(alt[2])
+            id = ok.id
+                  counts = int(alt[1])
+                  fname = ok.first_name
+                  mention = f"[{fname}](tg://user?id={id})"
+                  for _ in range(counts):
+                        reply = choice(BRAID)
+                        msg = f"{mention} {reply}"
+                        await xspam.send_message(message.chat.id, msg)
+                        await asyncio.sleep(0.3)
+
+      elif message.reply_to_message and (len(alt) == 2):
+            user_id = message.reply_to_message.from_user.id
+            ok = await xspam.get_users(user_id)
+            id = ok.id
+                  counts = int(alt[1])
+                  fname = ok.first_name
+                  mention = f"[{fname}](tg://user?id={id})"
+                  for _ in range(counts):
+                        reply = choice(BRAID)
+                        msg = f"{mention} {reply}"
+                        await xspam.send_message(message.chat.id, msg)
+                        await asyncio.sleep(0.3)
+
+      else:
+          await message.reply_text("𝗠𝗼𝗱𝘂𝗹𝗲 𝗡𝗮𝗺𝗲: BRAID\n  » .braid <ᴜꜱᴇʀɴᴀᴍᴇ ᴏꜰ ᴜꜱᴇʀ>\n  » .braid <ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴜꜱᴇʀ>")
+
+
